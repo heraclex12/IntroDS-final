@@ -7,5 +7,9 @@
 ### Thành viên 2:
 - Họ và tên: Lê Long Hồ
 - MSSV: 1712447
+### Thành viên 3:
+- Họ và tên: Nguyễn Đình Thiên Phúc
+- MSSV: 18120144
+
 
 
