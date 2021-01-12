@@ -24,7 +24,7 @@ def crawlMovieInfomation(url):
         "return document.body.scrollHeight"))
     for i in range(1, total_height, 5):
         browser.execute_script("window.scrollTo(0, {});".format(i))
-    time.sleep(1)
+    time.sleep(1.5)
 
     html_source = browser.page_source
     soup = BeautifulSoup(html_source, 'html.parser')
@@ -32,14 +32,17 @@ def crawlMovieInfomation(url):
     img = soup.find('img', {'class': 'poster'})
     imgFileName = ''
     if(img != None):
-        imgFileName = 'poster/'+url.split("/")[len(url.split("/"))-1]+'.jpg'
-        urllib.request.urlretrieve(
-            'https://www.themoviedb.org'+img.get('src'), imgFileName)
+        if(img.get('data-srcset') != None):
+            imgFileName = 'poster_final/' + \
+                url.split("/")[len(url.split("/"))-1]+'.jpg'
+            imgUrl = 'https://www.themoviedb.org' + \
+                img.get('data-srcset').split(' ')[2]
+            urllib.request.urlretrieve(imgUrl, imgFileName)
 
     title = ''
     titleDiv = soup.find('div', {'class': 'title ott_false'})
-    if(titleDiv!=None):
-        titleDiv=titleDiv.find('h2')
+    if(titleDiv != None):
+        titleDiv = titleDiv.find('h2')
         if(titleDiv != None):
             title = titleDiv.text.strip()
 
@@ -55,8 +58,10 @@ def crawlMovieInfomation(url):
 
     overviewDiv = soup.find('div', {'class': 'overview'})
     overview = ''
+    language = ''
     if(overviewDiv != None):
         overview = overviewDiv.text.strip()
+        language = detect(overview)
 
     taglineDiv = soup.find('h3', {'class': 'tagline'})
     tagline = ''
@@ -75,7 +80,7 @@ def crawlMovieInfomation(url):
             trailerDiv[1].get('href')
 
     return {'url': url, 'title': title, 'score': user_score_chart, 'posterImagePath': imgFileName,
-            'certification': certification, 'overview': overview, 'tagline': tagline, 'genres': genres, 'trailerUrl': trailerUrl}
+            'certification': certification, 'overview': overview, 'tagline': tagline, 'genres': genres, 'trailerUrl': trailerUrl, 'language': language}
 
 def getMovieUrl(url):
     browser.get(url)
@@ -153,13 +158,13 @@ def movieUrls(fileName):
 urls = movieUrls('movie_url.csv')
 
 fieldList = ['url', 'title', 'score', 'posterImagePath',
-             'certification', 'overview', 'tagline', 'genres', 'trailerUrl']
+             'certification', 'overview', 'tagline', 'genres', 'trailerUrl','language']
 try:
-    with open('movie_part2.csv', 'w', encoding='utf-8') as csvfile:
+    with open('movie_final.csv', 'w', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldList)
         writer.writeheader()
-        i = 4342
-        for url in urls[4342:]:
+        i = 0
+        for url in urls:
             record = crawlMovieInfomation(url)
             print(i, record)
             writer.writerow(record)
