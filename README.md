@@ -13,8 +13,8 @@
 
 
 
-Model nhận dạng poster phim
+Model nhận dạng poster phim.
 https://drive.google.com/drive/folders/1XKgJuzhvzlFzOqJUxPdpAmb7yLcDlnqE
-Tải thư mục này về, bỏ vào thư mục resnet_classification_movie_type
-Import thư viện qua file requirements.txt
+Tải thư mục này về, bỏ vào thư mục resnet_classification_movie_type.
+Import thư viện qua file requirements.txt.
 Sau đó chạy file testinferenc.py (chạy trên nền CPU), trong trường hợp chạy trên GPU thì dùng file test.py - bỏ ảnh vào và chạy kết quả.
