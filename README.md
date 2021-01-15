@@ -14,6 +14,7 @@
 
 ## Thông tin đề tài:
 Dữ liệu được thu thập từ trang [TMDB](https://www.themoviedb.org/)
+
 **Câu hỏi**: Phân loại một bộ phim có phù hợp với lứa tuổi dưới 18 hay không?
 - Input: ảnh poster và nội dung tóm tắt của bộ phim
 - Output: 1-Trên 18 tuổi, 0-ngược lại
