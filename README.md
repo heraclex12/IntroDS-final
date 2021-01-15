@@ -4,12 +4,15 @@
 ### Thành viên 1:
 - Họ và tên: Trần Trung Hiếu
 - MSSV: 1712442
+- Github: [heraclex12](https://github.com/heraclex12)
 ### Thành viên 2:
 - Họ và tên: Lê Long Hồ
 - MSSV: 1712447
+- Github: [longhomit](https://github.com/longhomit)
 ### Thành viên 3:
 - Họ và tên: Nguyễn Đình Thiên Phúc
 - MSSV: 18120144
+- Github: [RonnienNguyen](https://github.com/RonnienNguyen)
 
 
 ## Thông tin đề tài:
