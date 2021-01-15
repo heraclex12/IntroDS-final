@@ -12,9 +12,18 @@
 - MSSV: 18120144
 
 
+## Thông tin đề tài:
+**Câu hỏi**: Phân loại một bộ phim có phù hợp với lứa tuổi dưới 18 hay không?
+- Input: ảnh poster và nội dung tóm tắt của bộ phim
+- Output: 1-Trên 18 tuổi, 0-ngược lại
 
-Model nhận dạng poster phim.
-https://drive.google.com/drive/folders/1XKgJuzhvzlFzOqJUxPdpAmb7yLcDlnqE
-Tải thư mục này về, bỏ vào thư mục resnet_classification_movie_type.
-Import thư viện qua file requirements.txt.
-Sau đó chạy file testinferenc.py (chạy trên nền CPU), trong trường hợp chạy trên GPU thì dùng file test.py - bỏ ảnh vào và chạy kết quả.
+---
+## Danh sách các tệp:
+- [movieCrawling.py](https://github.com/heraclex12/IntroDS-final/blob/main/movieCrawling.py): mã nguồn thu thập dữ liệu.
+- [1712442_1712447_18120144.ipynb](https://github.com/heraclex12/IntroDS-final/blob/main/1712442_1712447_18120144.ipynb): notebook chứa mã nguồn xử lí dữ liệu và mô hình hóa.
+- [resources](https://github.com/heraclex12/IntroDS-final/tree/main/resources): thư mục chứa các tệp hỗ trợ quá trình xử lí dữ liệu
+  - vi_stopwords.txt
+  - en_stopwords.txt
+  - age_restricted.txt
+- [movie_final.csv](https://github.com/heraclex12/IntroDS-final/blob/main/movie_final.csv): tệp bảng dữ liệu về thông tin các bộ phim
+- [poster_img_pixels.csv](https://github.com/heraclex12/IntroDS-final/blob/main/poster_img_pixels.csv): tệp histogram của ảnh poster phim
